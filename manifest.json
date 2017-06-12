@@ -1,0 +1,13 @@
+{
+    "manifest_version": 2,
+    "name": "EJOY-DOG",
+    "version": "1.0",
+    "description": "EJOY 二次认证",
+    "content_scripts": [
+        {
+            "matches": ["*://one.ejoy.com/login", "*://testone.ejoy.com/login", "https://one.ejoy.com/login"],
+            "js": ["jquery.min.js", "dog.js"]
+        }
+    ]
+
+}
