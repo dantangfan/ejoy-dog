@@ -5,7 +5,7 @@
     "description": "EJOY 二次认证",
     "content_scripts": [
         {
-            "matches": ["*://one.ejoy.com/login", "*://testone.ejoy.com/login", "*://one.ejoy.com/oauth", "*://testone.ejoy.com/oauth"],
+            "matches": ["*://one.ejoy.com/login*", "*://testone.ejoy.com/login*", "*://one.ejoy.com/oauth*", "*://testone.ejoy.com/oauth*"],
             "js": ["jquery.min.js", "dog.js"]
         }
     ],
