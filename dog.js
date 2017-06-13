@@ -76,10 +76,18 @@ function getGoogleCode(code) {
     return auth(code, epoch());
 }
 
-
 $(function () {
-	document.getElementById('twoStepCode').value = getGoogleCode('your pass');
+    var text = getGoogleCode('your code');
+    var p = document.createElement("p");
+    p.innerHTML = text;
+    document.body.appendChild(p)
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(p);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    //add to clipboard.
+    document.execCommand('copy');
 });
-	
 
 
