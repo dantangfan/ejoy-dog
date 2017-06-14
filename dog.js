@@ -1,3 +1,5 @@
+var code="your code";
+
 function epoch() {
     return Math.floor(new Date().valueOf() / 30000);
 }
@@ -72,12 +74,24 @@ function auth(K, t) {
     return r;
 }
 
-function getGoogleCode(code) {
+function getGoogleCode() {
     return auth(code, epoch());
 }
 
-$(function () {
-    var text = getGoogleCode('your code');
+function doEvent( obj, event ) {
+    var event = new Event( event, {target: obj, bubbles: true} );
+    return obj ? obj.dispatchEvent(event) : false;
+}
+
+function inject_dog() {
+    var text = getGoogleCode();
+    var doc = document.getElementById('twoStepCode')
+    doc.value = text;
+    doEvent(doc, 'input')
+}
+
+function copyToClip() {
+    var text = getGoogleCode();
     var p = document.createElement("p");
     p.innerHTML = text;
     document.body.appendChild(p)
@@ -88,6 +102,10 @@ $(function () {
     selection.addRange(range);
     //add to clipboard.
     document.execCommand('copy');
+}
+
+$(function () {
+    setInterval(inject_dog, 1000)
 });
 
 
