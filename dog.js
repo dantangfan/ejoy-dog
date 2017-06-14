@@ -1,4 +1,4 @@
-var code="your code";
+var code="";
 
 function epoch() {
     return Math.floor(new Date().valueOf() / 30000);
@@ -104,8 +104,6 @@ function copyToClip() {
     document.execCommand('copy');
 }
 
-$(function () {
-    setInterval(inject_dog, 1000)
-});
+setInterval(inject_dog, 1000)
 
 
